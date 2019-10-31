@@ -1,0 +1,29 @@
+repos:
+  - repo: local
+    hooks:
+      - id: reformat
+        name: reformat
+        description: "Code formatter"
+        entry: pipenv run inv reformat
+        language: python
+        types: [python]
+        require_serial: true
+        pass_filenames: false
+
+      - id: lint
+        name: lint
+        description: "Code linter"
+        entry: pipenv run inv lint
+        language: python
+        types: [python]
+        require_serial: true
+        pass_filenames: false
+
+      - id: static-check
+        name: static-check
+        description: "Static type checker"
+        entry: pipenv run inv static-check
+        language: python
+        types: [python]
+        require_serial: true
+        pass_filenames: false

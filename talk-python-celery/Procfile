@@ -1,0 +1,6 @@
+tasks: celery worker --hostname tasks --app example.tasks:celery_app --queues=tasks --loglevel=info
+users: celery worker --hostname users --app example.users:celery_app --queues=users --loglevel=info
+mailing: celery worker --hostname mailing --app example.mailing:celery_app --queues=mailing --loglevel=info
+cron: celery beat --app example.cron:celery_app --loglevel=info
+monitor: celery flower --app example.celery:celery_app --loglevel=info
+ping: celery inspect ping --app example.celery:celery_app
