@@ -1,0 +1,16 @@
+script:
+  - mkdir -p dist
+  - cp CNAME dist/CNAME
+  - cp -R talk-python-celery/notebooks/talk_python_celery.slides.html dist/talk_python_celery.html
+  - cp -R talk-python-celery/notebooks/img dist/img
+
+deploy:
+  provider: pages
+  github_token: $GITHUB_TOKEN
+  skip_cleanup: true
+  keep_history: true
+  target_branch: gh-pages
+  local_dir: dist
+  on:
+    branch: master
+
